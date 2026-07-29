@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yoru-mado",
+  "main": "src/worker.tsx",
+  "compatibility_date": "2026-07-26",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "yoru-mado.yhay81.com",
+      "custom_domain": true,
+    },
+  ],
+  "observability": {
+    "enabled": true,
+  },
+  "triggers": {
+    "crons": ["17 18 * * *"],
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "yoru-mado",
+      "database_id": "5161aa44-09ed-4d82-ab89-f47cc9db05c1",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+  },
+}
